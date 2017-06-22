@@ -1,0 +1,5 @@
+CentOS 7.2 	! 	ppc64le iso does not exist on given source.
+Debian 8.0+	!	ppc64 iso does not exist on given source.
+Debian 8.7-	!!!	Only 9.0.0 iso exists on given source. 
+Ubuntu 14.04 	!	No known way to boot noninteractive.
+Fedora 23-	!	No iso exists for these versions.

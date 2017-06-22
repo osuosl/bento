@@ -1,6 +1,14 @@
 #!/bin/bash -eux
 
-yum -y install cloud-init cloud-utils dracut-modules-growroot cloud-utils-growpart
+packages="cloud-init cloud-utils dracut-modules-growroot cloud-utils-growpart"
+unamem=$(uname -m)
+
+if [ $unamem == "ppc64" -o $unamem == "ppc64le" ]
+  then
+    packages="$packages ppc64-diag"
+fi
+
+yum -y install $packages
 dracut -f
 
 if [ -e /boot/grub/grub.conf ] ; then
