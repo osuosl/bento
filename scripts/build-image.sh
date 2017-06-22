@@ -39,5 +39,5 @@ IMAGE_NAME=$(grep vm_name $TEMPLATE | awk '{print $2}' | sed -e 's/\"//g' | sed 
 set -xe
 cd packer
 packer build -var "chef_version=$CHEF_VERSION" $(basename $TEMPLATE)
-qemu-img convert -o compat=0.10 -O qcow2 -c ${DIR_NAME}/${IMAGE_NAME}.qcow2 \
+qemu-img convert -o compat=0.10 -O qcow2 -c ${DIR_NAME}/${IMAGE_NAME} \
   ${DIR_NAME}/${IMAGE_NAME}-compressed.qcow2

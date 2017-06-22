@@ -1,9 +1,20 @@
 #!/bin/bash -eux
 
+packages="cloud-init cloud-utils"
+unamem=$(uname -m)
+
+if [ $unamem == "ppc64" -o $unamem == "ppc64le" ]
+  then
+    packages="$packages ppc64-diag"
+fi
+
 if [ -e /usr/bin/dnf ] ; then
-  dnf -y install cloud-init cloud-utils yum
+  packages="$packages yum"
+  dnf -y install $packages
+
 else
-  yum -y install cloud-init cloud-utils dracut-modules-growroot
+  packages="$packages dracut-modules-growroot"
+  yum -y install $packages
 fi
 dracut -f
 
