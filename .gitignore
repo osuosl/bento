@@ -2,7 +2,11 @@ bin/
 .bundle/
 iso
 *.box
+*.qcow2
 virtualfloppy.vfd
 packer_cache
 packer.log
 .DS_Store
+chef/berkshelf
+chef/*/cookbooks
+chef/*/Berksfile.lock
